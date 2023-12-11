@@ -1,0 +1,92 @@
+<!-- page2.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2</title>
+    <style>
+        body {
+            background-image: url('https://media.istockphoto.com/id/1358767025/photo/christmas-gift-box-with-red-ribbon-and-empty-label-for-text-and-santa-hat.webp?b=1&s=170667a&w=0&k=20&c=jsJeT1yKe0s7pMKWOqGMka-Azu-XaKQAFICN_S3SEUc=');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20% auto;
+            max-width: 600px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Heyy... you answered 4 and got here...! Now solve this 😈</h1>
+        <p id="question">Which language did Jesus speak?</p>
+        <form onsubmit="checkAnswer(); return false;">
+            <label>
+                <input type="radio" name="answer" value="A" required> Option A: <span id="optionA"></span>
+            </label><br>
+            <label>
+                <input type="radio" name="answer" value="B"> Option B: <span id="optionB"></span>
+            </label><br>
+            <label>
+                <input type="radio" name="answer" value="C"> Option C: <span id="optionC"></span>
+            </label><br>
+            <label>
+                <input type="radio" name="answer" value="D"> Option D: <span id="optionD"></span>
+            </label><br>
+            <button type="submit">Submit Answer</button>
+        </form>
+    </div>
+
+    <script>
+        // Define the question and options dynamically
+        var question = "Which language did Jesus speak?";
+        var options = {
+            A: "Aramaic",
+            B: "Hebrew",
+            C: "Latin",
+            D: "Greek"
+        };
+
+        // Set the question and options in the HTML
+        document.getElementById("question").innerText = question;
+        document.getElementById("optionA").innerText = options.A;
+        document.getElementById("optionB").innerText = options.B;
+        document.getElementById("optionC").innerText = options.C;
+        document.getElementById("optionD").innerText = options.D;
+
+        function checkAnswer() {
+            var selectedAnswer = document.querySelector('input[name="answer"]:checked');
+
+            if (selectedAnswer && selectedAnswer.value === "A") {
+                window.location.href = "3rdpage.html"; // Redirect to 3rd page for correct answers
+            } else {
+                window.location.href = "error.html"; // Redirect to error page for incorrect answers
+            }
+        }
+    </script>
+</body>
+</html>
